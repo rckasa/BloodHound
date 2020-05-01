@@ -31,7 +31,9 @@
     "dev": "concurrently -k \"babel-node server.js\" \"npm start\"",
     "winbuild": "webpack --config webpack.config.production.js && electron-packager . BloodHound --platform=win32 --arch=all --overwrite --prune --ignore=./*.zip --ignore=./BloodHound.* --ignore=BloodHoundExampleDB.graphdb --ignore=Ingestors --ignore=node_modules/\\.bin --icon=src/img/icon.ico",
     "macbuild": "webpack --config webpack.config.production.js && electron-packager . BloodHound --platform=darwin --arch=all --overwrite --prune --ignore=./*.zip --ignore=./BloodHound.* --ignore=BloodHoundExampleDB.graphdb --ignore=Ingestors --ignore=node_modules/\\.bin --icon=src/img/icon.icns",
-    "linuxbuild": "webpack --config webpack.config.production.js && electron-packager . BloodHound --platform=linux --arch=all --overwrite --prune --ignore=./*.zip --ignore=./BloodHound.* --ignore=BloodHoundExampleDB.graphdb --ignore=Ingestors --ignore=node_modules/\\.bin"
+    "linuxbuild": "webpack --config webpack.config.production.js && electron-packager . BloodHound --platform=linux --arch=all --overwrite --prune --ignore=./*.zip --ignore=./BloodHound.* --ignore=BloodHoundExampleDB.graphdb --ignore=Ingestors --ignore=node_modules/\\.bin",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "babel": {
     "presets": [
@@ -68,7 +70,7 @@
     "image-size": "^0.6.3",
     "image-type": "^3.0.0",
     "is-zip-file": "^1.0.2",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "linkurious": "^1.5.1",
     "md5-file": "^4.0.0",
     "mustache": "^2.3.0",
@@ -83,6 +85,8 @@
     "react-transition-group": "^2.2.1",
     "stream-json": "^1.1.4",
     "unzipper": "^0.8.9",
-    "uuid": "^3.3.2"
-  }
+    "uuid": "^3.3.2",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
